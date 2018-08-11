@@ -1,0 +1,24 @@
+<h2>New Item</h2>
+
+<%= form_for(@item) do |f| %>
+  <div class="field row">
+    <label for ="item_title">Title</label>
+    <%= f.text_field :title, class: "col-xs-12" %>
+  </div>
+
+  <%= form.field_for(@disc) do |disc| %>
+    <div class="field row">
+      <label for ="disc">Disk number</label>
+      <%= disc.number_field :disc_number, class: "col-xs-12" %>
+    </div>
+
+  <%= form_for(@song) do |song| %>
+    <div class="field row">
+      <label for ="song">Song</label>
+      <%= song.text_field :name, class: "col-xs-12" %>
+    </div>
+
+<div class="action row">
+  <%= f.submit 'Create Item', :class =>"btn btn-primary col-xs-12" %>
+</div>
+<% end %>
