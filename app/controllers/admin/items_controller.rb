@@ -12,8 +12,18 @@ class Admin::ItemsController < ApplicationController
 	def create
 		@item = Item.new(item_params)
 		@item.save
-		redirect_to items_path
+		redirect_to new_admin_item_path
 	end
+
+	private
+
+		def item_params
+			params.require(:item).permit(
+				:id, :title,
+				discs_attributes: [:id, :disc_number,
+					songs_attributes: [:id, :name]])
+		end
+	
 
 
 
