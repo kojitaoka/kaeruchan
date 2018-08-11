@@ -1,24 +1,26 @@
-<h2>New Item</h2>
 
-<%= form_for(@item) do |f| %>
-  <div class="field row">
-    <label for ="item_title">Title</label>
-    <%= f.text_field :title, class: "col-xs-12" %>
+<%= form_for @item, url: admin_items_path do |f| %>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+    <%= f.hidden_field :id %>
+    <%= f.fields_for :discs do |df| %>
+        <div class="field">
+          <%= df.label :disc_number %><br>
+          <%= df.text_field :disc_number %>
+          <%= df.hidden_field :id %>
+          <%= df.fields_for :song do |sf| %>
+            <div class="field">
+              <%= sf.label :name %><br>
+              <%= sf.text_field :name %>
+              <%= sf.hidden_field :id %>
+            </div>
+          <% end %>
+        </div>
+    <% end %>
+    <%= f.submit %>
   </div>
-
-  <%= form.field_for(@disc) do |disc| %>
-    <div class="field row">
-      <label for ="disc">Disk number</label>
-      <%= disc.number_field :disc_number, class: "col-xs-12" %>
-    </div>
-
-  <%= form_for(@song) do |song| %>
-    <div class="field row">
-      <label for ="song">Song</label>
-      <%= song.text_field :name, class: "col-xs-12" %>
-    </div>
-
-<div class="action row">
-  <%= f.submit 'Create Item', :class =>"btn btn-primary col-xs-12" %>
-</div>
 <% end %>
+
+
+

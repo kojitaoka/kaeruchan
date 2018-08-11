@@ -1,17 +1,4 @@
 <h2>New Item</h2>
 
-<% form_for(@item), url: admin_items_path do |f| %>
-  <div class="card">
-  	<div class="card-header">
-  		<p>商品情報</p>
-  	</div>
-    <div class="card-body">
-    	<p></p>
-    </div>
-      <%= render 'form', f: f %>
-      <div class="float-right">
-      	<%= f.submit 'プレビュー', class: 'btn btn-success mr-2', name: 'item[preview]' %>
-        <%= f.submit '登録', class: 'btn btn-primary mr-2' %>
-        <%= link_to 'キャンセル', admin_items_path, class: 'btn btn-light' %>
-      </div>
-<%= render 'admin/images/new' %>
+
+<%= render 'admin/items/form' %>
