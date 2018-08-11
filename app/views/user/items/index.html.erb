@@ -1,0 +1,28 @@
+<table class="table table-striped"> 
+				<h1>Items index</h1>
+				<thead>
+					<tr>
+							<th></th>
+							<th class="index-item-title">Title</th>
+							<th></th>
+							<th></th>
+							<th></th>
+					</tr>
+				</thead>
+
+				<tbody>
+
+					<% @items.each do |item| %>
+
+						<tr>
+							<td><%= item.title %></td>
+							<td><%= link_to "show", show_item_path(@item.id) %>  </td>
+						</tr>
+
+					<% end %>
+				</tbody>
+
+			</table>
+		</div>
+	 </div>
+</div>
