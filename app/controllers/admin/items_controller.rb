@@ -9,6 +9,12 @@ class Admin::ItemsController < ApplicationController
 		@item.songs.build
 	end
 
+	def create
+		@item = Item.new(item_params)
+		@item.save
+		redirect_to items_path
+	end
+
 
 
 end
