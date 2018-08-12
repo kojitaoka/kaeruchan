@@ -1,19 +1,33 @@
-<table>
+<table class="table table-striped"> 
+				<h1>Items index</h1>
+				<thead>
+					<tr>
+							<th></th>
+							<th class="index-item-title">Title</th>
+							<th></th>
+							<th></th>
+							<th></th>
+					</tr>
+				</thead>
 
-  <h2>item detail</h2>
-  <thead>
-    <tr>
-	    <th>Title</th>
-	    <th></th>
-		</tr>
-	</thead>
+				<tbody>
 
-	<tbody>
-		<% @items.each do |item| %>
-			<tr>
-						<td><%= item.title %></td>
-						
-			</tr>
-		<% end %>
-	</tbody>
-</table>
+					<% @items.each do |item| %>
+
+						<tr>
+							<td><%= item.title %></td>
+							<td><% item.discs.each do |disc| %>
+									<%= disc.disc_number%>
+									<% disc.songs.each do |song| %>
+										<%= song.name %>
+									<% end %>
+								<% end %>
+							</td>
+						</tr>
+					<% end %>
+				</tbody>
+
+			</table>
+		</div>
+	 </div>
+</div>

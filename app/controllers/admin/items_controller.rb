@@ -6,11 +6,12 @@ class Admin::ItemsController < ApplicationController
 	def new
 		@item = Item.new
 		@item.discs.build
-		@item.songs.build
+		@item.discs.first.songs.build
 	end
 
 	def create
 		@item = Item.new(item_params)
+		binding.pry
 		@item.save
 		redirect_to new_admin_item_path
 	end

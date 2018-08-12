@@ -1,14 +1,8 @@
 class User::ItemsController < ApplicationController
 	def index
 		@items = Item.all
-
-	end
-
-	def show
-		@items = Item.all
-
-		@disc = Disc.find(item: paramas[:id])
-		@song = Song.find(disc: paramas[:id])
+		# @disc = Disc.find_by(item: params[:item])
+		# @song = Song.find_by(disc: params[:disc])
 	end
 
 	private
